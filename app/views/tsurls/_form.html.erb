@@ -1,0 +1,21 @@
+<%= form_for(@tsurl) do |f| %>
+  <% if @tsurl.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tsurl.errors.count, "error") %> prohibited this tsurl from being saved:</h2>
+
+      <ul>
+      <% @tsurl.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :short %><br />
+    <%= f.text_field :short %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
