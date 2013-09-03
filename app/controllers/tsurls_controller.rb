@@ -10,6 +10,8 @@ class TsurlsController < ApplicationController
 
   def redir
     @tsurl = Tsurl.find_by_short!(params[:short])
+    @tsurl.add_to_log(request)
+    redirect_to @tsurl.full
   end
 
   def create
