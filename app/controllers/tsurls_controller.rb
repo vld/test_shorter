@@ -1,12 +1,15 @@
 class TsurlsController < ApplicationController
 
   def show
-    @tsurl = Tsurl.find(params[:id])
 
   end
 
   def new
     @tsurl = Tsurl.new
+  end
+
+  def redir
+    @tsurl = Tsurl.find_by_short!(params[:short])
   end
 
   def create

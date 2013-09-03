@@ -1,16 +1,9 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Short:</b>
-  <%= @tsurl.short %>
-</p>
-
-<p>
-  <b>Full:</b>
-  <%= @tsurl.full %>
-</p>
-
-<p>
-  <b>Log:</b>
-  <%= @tsurl.log %>
-</p>
+<%= form_tag(redir_tsurls_path) do |f| %>
+  <div class="field">
+    <%= label_tag :short %><br />
+    <%= text_field_tag :short %>
+  </div>
+  <div class="actions">
+    <%= submit_tag 'Recognize' %>
+  </div>
+<% end %>
