@@ -1,7 +1,8 @@
 TestShorter::Application.routes.draw do
-  resources :tsurls, :only => [:new, :create] do
+  resources :tsurls, :only => [:new, :create, :index] do
     post :redir, :on => :collection
-    get :show, :on => :collection
   end
-  root :to => 'tsurls#new'
+  root :to => 'tsurls#index'
+  match "new" => 'tsurls#new'
+  match ':short' => 'tsurls#redir'
 end

@@ -1,7 +1,7 @@
 class TsurlsController < ApplicationController
 
-  def show
-
+  def index
+    @tsurl = Tsurl.all
   end
 
   def new
@@ -17,14 +17,10 @@ class TsurlsController < ApplicationController
   def create
     @tsurl = Tsurl.new(params[:tsurl])
 
-    respond_to do |format|
-      if @tsurl.save
-        format.html { redirect_to @tsurl, notice: 'Tsurl was successfully created.' }
-        format.json { render json: @tsurl, status: :created, location: @tsurl }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @tsurl.errors, status: :unprocessable_entity }
-      end
+    if @tsurl.save
+      redirect_to tsurls_path, notice: 'Tsurl was successfully created.'
+    else
+      render action: "new" 
     end
   end
 

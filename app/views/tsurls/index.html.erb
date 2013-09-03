@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <td>ID</td>
+    <td>Short URL</td>
+    <td>Original URL</td>
+    <td>Log</td>
+  </thead>
+  <tbody>
+    <% @tsurl.each do |url|%>
+      <tr>
+        <td><%= url.id%></td>
+        <td><%= url.short%></td>
+        <td><%= url.full%></td>
+        <td><%= simple_format(url.log) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
